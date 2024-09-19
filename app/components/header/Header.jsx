@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { AnimatePresence } from "framer-motion";
 import styles from "./style.module.scss";
 
 export default function Header() {
@@ -9,10 +10,10 @@ export default function Header() {
     <>
       <div onClick={() => setIsActive(!isActive)} className={styles.button}>
         <div
-          className={`${styles.burger} ${
-            isActive ? styles.burgerActive : ""
-          }`}></div>
+          className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}
+        />
       </div>
+      {/* <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence> */}
     </>
   );
 }
