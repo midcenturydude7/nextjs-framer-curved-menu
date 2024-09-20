@@ -55,7 +55,7 @@ export default function Nav() {
             );
           })}
         </div>
-        <div>
+        <div className={styles.footer}>
           <a href="#">Awwwards</a>
           <a href="#">Instagram</a>
           <a href="#">Dribble</a>
