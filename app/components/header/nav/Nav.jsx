@@ -38,7 +38,9 @@ export default function Nav() {
       className={styles.menu}>
       <div className={styles.body}>
         <div
-          onMouseLeave={() => setSelectedIndicator(pathname)}
+          onMouseLeave={() => {
+            setSelectedIndicator(pathname);
+          }}
           className={styles.nav}>
           <div className={styles.header}>
             <p>Navigation</p>
@@ -48,9 +50,8 @@ export default function Nav() {
               <Links
                 key={index}
                 data={{ ...data, index }}
-                isActive={selectedIndicator === data.href}
-                setSelectedIndicator={setSelectedIndicator}
-              />
+                isActive={selectedIndicator == data.href}
+                setSelectedIndicator={setSelectedIndicator}></Links>
             );
           })}
         </div>
