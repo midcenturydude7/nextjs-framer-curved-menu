@@ -1,9 +1,9 @@
-import styles from "./styles.module.css";
+import styles from "./style.module.scss";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { slide, scale } from "../../../lib/anim";
+import { slide, scale } from "../../../../lib/anim";
 
-export default function Link({ data, isActive, setSelectedIndicator }) {
+export default function Links({ data, isActive, setSelectedIndicator }) {
   const { title, href, index } = data;
 
   return (

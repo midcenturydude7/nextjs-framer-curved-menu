@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { menuSlide } from "../../../lib/anim";
-import Link from "./link/Link";
+import Links from "./link/Links";
 
 const navItems = [
   {
@@ -26,5 +26,41 @@ const navItems = [
 ];
 
 export default function Nav() {
-  return <div>Nav</div>;
+  const pathname = usePathname();
+  const [selectedIndicator, setSelectedIndicator] = React.useState(pathname);
+
+  return (
+    <motion.div
+      variants={menuSlide}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      className={styles.menu}>
+      <div className={styles.body}>
+        <div
+          onMouseLeave={() => setSelectedIndicator(pathname)}
+          className={styles.nav}>
+          <div className={styles.header}>
+            <p>Navigation</p>
+          </div>
+          {navItems.map((data, index) => {
+            return (
+              <Links
+                key={index}
+                data={{ ...data, index }}
+                isActive={selectedIndicator === data.href}
+                setSelectedIndicator={setSelectedIndicator}
+              />
+            );
+          })}
+        </div>
+        <div>
+          <a href="#">Awwwards</a>
+          <a href="#">Instagram</a>
+          <a href="#">Dribble</a>
+          <a href="">LinkedIn</a>
+        </div>
+      </div>
+    </motion.div>
+  );
 }

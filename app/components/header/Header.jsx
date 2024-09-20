@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Nav from "./nav/Nav";
 import { AnimatePresence } from "framer-motion";
 import styles from "./style.module.scss";
 
@@ -13,7 +14,7 @@ export default function Header() {
           className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}
         />
       </div>
-      {/* <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence> */}
+      <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
     </>
   );
 }
