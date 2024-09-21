@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { menuSlide } from "../../../lib/anim";
 import Links from "./link/Links";
+import Footer from "./footer/Footer";
+import Curve from "./curve/Curve";
 
 const navItems = [
   {
@@ -55,13 +57,9 @@ export default function Nav() {
             );
           })}
         </div>
-        <div className={styles.footer}>
-          <a href="#">Awwwards</a>
-          <a href="#">Instagram</a>
-          <a href="#">Dribble</a>
-          <a href="">LinkedIn</a>
-        </div>
+        <Footer />
       </div>
+      <Curve />
     </motion.div>
   );
 }
